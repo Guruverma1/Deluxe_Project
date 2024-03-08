@@ -1,0 +1,799 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Workflow" this:Workflow.str_in_AnnuallyMonth="June" this:Workflow.Dpp_Url="https://payments2.deluxe.com/gateway/virtual-terminal" this:Workflow.str_in_Frequency="BiWeekly" this:Workflow.Frequency="BiWeekly" this:Workflow.str_in_AnnuallyOptions="4th" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="str_in_AnnuallyMonth" Type="InArgument(x:String)" />
+    <x:Property Name="str_in_BiWeeklyOptions" Type="InArgument(x:String)" />
+    <x:Property Name="Dpp_Url" Type="InArgument(x:String)" />
+    <x:Property Name="str_in_Frequency" Type="InArgument(x:String)" />
+    <x:Property Name="Frequency" Type="InArgument(x:String)" />
+    <x:Property Name="str_in_AnnuallyOptions" Type="InArgument(x:String)" />
+    <x:Property Name="str_in_reportid" Type="InArgument(x:Int32)" />
+    <x:Property Name="str_in_testid" Type="InArgument(x:String)" />
+    <x:Property Name="str_in_WeeklyOptions" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Workflow.str_in_BiWeeklyOptions>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Workflow.str_in_BiWeeklyOptions>
+  <this:Workflow.str_in_reportid>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Workflow.str_in_reportid>
+  <this:Workflow.str_in_testid>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Workflow.str_in_testid>
+  <this:Workflow.str_in_WeeklyOptions>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Workflow.str_in_WeeklyOptions>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1204,2772</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>CommonLibrary.Report</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>CommonLibrary</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Workflow" sap:VirtualizedContainerService.HintSize="1214,2707" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Payments" sap:VirtualizedContainerService.HintSize="1152,2596" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1118,2379" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" sap:VirtualizedContainerService.HintSize="1056,1879" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Switch.Expression>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">Frequency</CSharpValue>
+                </InArgument>
+              </Switch.Expression>
+              <Sequence x:Key="Daily" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="977, 424, 347, 32" CvTextArea="991, 432, 30, 16" CvTextArgument="Daily" CvType="InputBox" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Daily'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='5' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' check:text='Daily' /&gt;" Guid="7f207c4a-c943-4d2b-8fe4-901660033b8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOmSURBVHhe7dy/bxtlHMdx/xc3ZmT02NGjR48es4AQqVQDBUwL/QmNQ5EwTIwevWEGpAhQ5UqVsGit2jVCSWo7jjGJiZC4Qm0uqu188F0ep9e0oa1/XOvq/ZK+0j2PM7/16PE5IQEAAkFwASAgh8F1HEfNZlOVSkXFYpFhGIaZYNyWuk3t9/umsr7gbm5uqlwuq9vtmh0AwLjclrZaLe3s7JgdX3Dd2HY6HbMCAEzKvTmo12pm5QuuewTe3983KwDApNym3t3YMKsjwQUATNfG+rp5IrgAMFMEFwACQnABICAvUXBtNdbaB4/trGKhlAoHKwB4JUw1uIVUSKHQaBZ0YjGl3JpjPn2Kta8VsRJadf+c4AJ4BU0/uKlRJh3ZpYzi1gmlS2brWRFcAC/AX/Y98/RkvV5f3e6/GgzGe212hsE9YOcWFVrMyR6tC2nFX7O8U/BCdHiibZgP/JH1PRdSlsK+Yjv5hEKxrFkBwHQ0my19fHFF33z7ndl51IMHPX3/Y17nLq2o/ceu2X0+Mw/uIyFtZBS14sqayDYyMS+e3s3tMcFVKa1wOK2D5DrKJy3FsuauFwCm5P79jpavfqXX33pHP1y77gV2ZDAY6FaxrKVTSV345HPd+/sf88nzCSi4i8p5R1xHtu27020cE1n/8zC16XBEGS/SBaWsmOgtgFnY3f1Tl5e/0KnTH+n6jZ+0t7fn7Vdrmzpz7oo+XUlr/W5NgzF/iRvsCXcY3LVsQlFzpXAwTwuue8gNK+IW1z3tjk7EADADrd93dOWzL/X+2Uu6Xa7oTuVX76rh7PllrW9UvdPuuAK9w3XySVnRtAqjC93jInskuF5oIxllh+HlOgHALLn/86Cx9ZsuXL6qdz84r5Nvf6g3lk7r51u3J4qta4bBddTOpxT1vaVgr76pUCyjhnerYKuUict6luCqoUzEksV1AoCA3CyW9N6Zi1pKJHUtf8PsTmb6wf3f93AbWk1EteB+vhBVKpMehjWh/NF3bx8LrvsFW+ThF2wAMGPuK2A3h6fa0p1fzM7kphrcWXKDy3UCgHk2H8G180qGR286AMB8eumD287FFbIiShz+QgIA5tPcXCkAwLwjuAAQEIILAAEhuAAQEIILAAF5YnBLpZI6nY5ZAQAm5TiO6rWaWfmCW6/XVa1W1e12zQ4AYFxuS7e3t9VuP/zx1mFwe72ems2mKpWKd73AMAzDjD9uS7e2ttTv901lfcEFAMwWwQWAQEj/ARC8B7mLJVE8AAAAAElFTkSuQmCC" InformativeScreenshot="b115058922a653a6ee70eaadb46b17f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_1" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NSelectItem.Item>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">str_in_Frequency</CSharpValue>
+                    </InArgument>
+                  </uix:NSelectItem.Item>
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="8">
+                      <x:String>Annually</x:String>
+                      <x:String>BiMonthly</x:String>
+                      <x:String>BiWeekly</x:String>
+                      <x:String>Daily</x:String>
+                      <x:String>Monthly</x:String>
+                      <x:String>Quarterly</x:String>
+                      <x:String>SemiAnnually</x:String>
+                      <x:String>Weekly</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7f358283-fdd2-48ef-bfc7-717de24b4b75" ImageBase64="" InformativeScreenshot="e63e1063e309727116b498aa03d7ff8d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">"Selected Daily frequency"</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+              </Sequence>
+              <Sequence x:Key="Annually" sap:VirtualizedContainerService.HintSize="1016,2321" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="977, 424, 347, 32" CvTextArea="991, 432, 30, 16" CvTextArgument="Daily" CvType="InputBox" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Daily'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='5' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' check:text='Daily' /&gt;" Guid="7f207c4a-c943-4d2b-8fe4-901660033b8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOmSURBVHhe7dy/bxtlHMdx/xc3ZmT02NGjR48es4AQqVQDBUwL/QmNQ5EwTIwevWEGpAhQ5UqVsGit2jVCSWo7jjGJiZC4Qm0uqu188F0ep9e0oa1/XOvq/ZK+0j2PM7/16PE5IQEAAkFwASAgh8F1HEfNZlOVSkXFYpFhGIaZYNyWuk3t9/umsr7gbm5uqlwuq9vtmh0AwLjclrZaLe3s7JgdX3Dd2HY6HbMCAEzKvTmo12pm5QuuewTe3983KwDApNym3t3YMKsjwQUATNfG+rp5IrgAMFMEFwACQnABICAvUXBtNdbaB4/trGKhlAoHKwB4JUw1uIVUSKHQaBZ0YjGl3JpjPn2Kta8VsRJadf+c4AJ4BU0/uKlRJh3ZpYzi1gmlS2brWRFcAC/AX/Y98/RkvV5f3e6/GgzGe212hsE9YOcWFVrMyR6tC2nFX7O8U/BCdHiibZgP/JH1PRdSlsK+Yjv5hEKxrFkBwHQ0my19fHFF33z7ndl51IMHPX3/Y17nLq2o/ceu2X0+Mw/uIyFtZBS14sqayDYyMS+e3s3tMcFVKa1wOK2D5DrKJy3FsuauFwCm5P79jpavfqXX33pHP1y77gV2ZDAY6FaxrKVTSV345HPd+/sf88nzCSi4i8p5R1xHtu27020cE1n/8zC16XBEGS/SBaWsmOgtgFnY3f1Tl5e/0KnTH+n6jZ+0t7fn7Vdrmzpz7oo+XUlr/W5NgzF/iRvsCXcY3LVsQlFzpXAwTwuue8gNK+IW1z3tjk7EADADrd93dOWzL/X+2Uu6Xa7oTuVX76rh7PllrW9UvdPuuAK9w3XySVnRtAqjC93jInskuF5oIxllh+HlOgHALLn/86Cx9ZsuXL6qdz84r5Nvf6g3lk7r51u3J4qta4bBddTOpxT1vaVgr76pUCyjhnerYKuUict6luCqoUzEksV1AoCA3CyW9N6Zi1pKJHUtf8PsTmb6wf3f93AbWk1EteB+vhBVKpMehjWh/NF3bx8LrvsFW+ThF2wAMGPuK2A3h6fa0p1fzM7kphrcWXKDy3UCgHk2H8G180qGR286AMB8eumD287FFbIiShz+QgIA5tPcXCkAwLwjuAAQEIILAAEhuAAQEIILAAF5YnBLpZI6nY5ZAQAm5TiO6rWaWfmCW6/XVa1W1e12zQ4AYFxuS7e3t9VuP/zx1mFwe72ems2mKpWKd73AMAzDjD9uS7e2ttTv901lfcEFAMwWwQWAQEj/ARC8B7mLJVE8AAAAAElFTkSuQmCC" InformativeScreenshot="b115058922a653a6ee70eaadb46b17f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NSelectItem_2" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NSelectItem.Item>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">str_in_Frequency</CSharpValue>
+                    </InArgument>
+                  </uix:NSelectItem.Item>
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="8">
+                      <x:String>Annually</x:String>
+                      <x:String>BiMonthly</x:String>
+                      <x:String>BiWeekly</x:String>
+                      <x:String>Daily</x:String>
+                      <x:String>Monthly</x:String>
+                      <x:String>Quarterly</x:String>
+                      <x:String>SemiAnnually</x:String>
+                      <x:String>Weekly</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7f358283-fdd2-48ef-bfc7-717de24b4b75" ImageBase64="" InformativeScreenshot="e63e1063e309727116b498aa03d7ff8d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="954,143" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">"Selected Annually frequency"</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+                <uix:NCheckState DisplayName="Check App State 'Month'" sap:VirtualizedContainerService.HintSize="954,1629" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,1412" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+                        <ui:LogMessage.Level>
+                          <InArgument x:TypeArguments="ui:LogLevel">
+                            <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Level>
+                        <ui:LogMessage.Message>
+                          <InArgument x:TypeArguments="x:Object">
+                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">"Month and Options field visibale after selecting Annually frquency"</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Message>
+                      </ui:LogMessage>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="239, 497, 347, 31" CvType="InputBox" DesignTimeRectangle="242, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='6' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' /&gt;" Guid="f76f4ee9-516b-4aad-b535-5b68cb0b0a6e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIxSURBVHhe7dxda9NgGIdxP6weWGG+TJ2b7lVX6gRfvoh44InK2GAguJW1iwjtmtbG2tYi6HSJKWvSv6Y8SiwbzNQ9R9cPbshz9/wihDTnBACwguACgCV/ghuGoTzPk+M4KhaLDMMwzASTtDRpahRFprKp4DYaDZXLZQVBYDYAgKySlrZaLXU6HbNJBTeJre/75gQAmFTy5KDuuuaUCm5yCzwcDs0JADCppKn71ao5jQUXAPB/VSsVc0VwAeBMEVwAsITgAoAlBBcALCG4AGAJwQUASwguAKR8+Xpgro43GEQKgh+K43//rwLBBQDD81q6s1TQ02fPzeZvR0cDvXi1ofnlgrqfemZ7egQXAIzDQ1/5tSc6f/GqXq5vjgL7WxzH2imWlZua0eLdBzr49t38cnoEFwBSer3PWsk/1NT0bW1uvVa/3x/ta25Ds/Oruld4pMq+qzjD5w8ILgCMaX3saPX+Y92YW9Zu2dGe8270qGFuIa9KtTa6282C4ALAmORDM++bH7S4sqZrNxd06cotXchN683ObubYJgguAJxgu1jS9dkl5S7PaH1jy2yzI7gAcILkFbDtX3e1pb23ZjMZggsAlhBcALCE4AKAJQQXACwhuABgCcEFAEsILgBYcmxwS6WSfN83JwDApMIwVN11zSkV3Hq9rlqtpiAIzAYAkFXS0na7rW63azap4A4GA3meJ8dxRo8XGIZhmOyTtLTZbCqKIlPZVHABAGeL4AKAFdJPxVbmxPD169IAAAAASUVORK5CYII=" InformativeScreenshot="94b52d72ed65e66f723fcbf0fbaaa035.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_3" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NSelectItem.Item>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">str_in_AnnuallyMonth</CSharpValue>
+                          </InArgument>
+                        </uix:NSelectItem.Item>
+                        <uix:NSelectItem.Items>
+                          <scg:List x:TypeArguments="x:String" Capacity="12">
+                            <x:String>January</x:String>
+                            <x:String>February</x:String>
+                            <x:String>March</x:String>
+                            <x:String>April</x:String>
+                            <x:String>May</x:String>
+                            <x:String>June</x:String>
+                            <x:String>July</x:String>
+                            <x:String>August</x:String>
+                            <x:String>September</x:String>
+                            <x:String>October</x:String>
+                            <x:String>November</x:String>
+                            <x:String>December</x:String>
+                          </scg:List>
+                        </uix:NSelectItem.Items>
+                        <uix:NSelectItem.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="242, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' class='ngx-select__search form-control ng-star-inserted' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' class='ngx-select__search form-control ng-star-inserted' type='text' tag='INPUT' aaname='' /&gt;" Guid="47eb481b-9abd-4ce2-a031-efd622a9478d" ImageBase64="" InformativeScreenshot="c23219c81efd974ccbf71880a6498354.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NSelectItem.Target>
+                      </uix:NSelectItem>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+                        <ui:LogMessage.Level>
+                          <InArgument x:TypeArguments="ui:LogLevel">
+                            <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Level>
+                        <ui:LogMessage.Message>
+                          <InArgument x:TypeArguments="x:Object">
+                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">"Selected the month in the month drop down"</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Message>
+                      </ui:LogMessage>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="608, 496, 348, 32" CvType="InputBox" DesignTimeRectangle="610, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='7' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' /&gt;" Guid="9320b644-7a45-45eb-9abf-6a70d75f7fd3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI1SURBVHhe7dxda9NQHMdxX6xeuIFTJ7qpe3KszEf0jYgXXinTDUHQlbXLHLZrWhtrW4ug0yW2NGt/9oRD2HA3W7pz9f3An+ac3H85hCYXBABwguACgCNpcLvdroIgkOd5yufzDMMwTMYxPTVdPTw8TDqbBrdWq6lYLCqKIrsDAMjC9LTRaKjVaiXrNLgmtmEY2hUAYBzM04Oq7yfXaXDN8Xc4HNoVAGAcTFf3yuXk+lhwAQDjVy6Vkl+CCwDnjOACgCMEFwAcIbgA4AjBBQBHCC4AOEJwAcD6+WvfXp3MvJobRX81GJztXQWCCwAjQdDQ3cVVPX/x0u4c1+/HWt94r7mlVbW/d+zu6RBcABg5OAiVe/BMFy9f06u1dfXj2N7R6EQ70Ga+qMmpGS0sP9T+7z/2zukQXACwOp0fupd7oivTd/T6zYZ6vV6yX/Frmp1b0dLKI5X2fA3O+PkDggsARzS+tbRy/6mmZxa0VfS07e0mjxpuz+f0afdzcto9K4ILAEeYj8x8qX/Vcu6xrt+c1+TVGV2amNaHza1MsTUILgCcYHtnVzdmFzUxdUtrb9/Z3WwILgCcwPwF7OPoVFvY3rE72RFcAHCE4AKAIwQXABwhuADgCMEFAEcILgA4QnABwJH/glsoFBSGoV0BAMah2+2q6vvJdRrcarWqSqWiKIrsDgAgC9PTZrOpdrudrNPgxnGsIAjkeV7yeIFhGIbJNqan9Xo9eXvNSIMLADhfBBcAnJD+ASir5aN8u0foAAAAAElFTkSuQmCC" InformativeScreenshot="d32285b340b0dc24646d8f4c7c236e02.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_4" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NSelectItem.Item>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">str_in_AnnuallyOptions</CSharpValue>
+                          </InArgument>
+                        </uix:NSelectItem.Item>
+                        <uix:NSelectItem.Items>
+                          <scg:List x:TypeArguments="x:String" Capacity="31">
+                            <x:String>1st</x:String>
+                            <x:String>2nd</x:String>
+                            <x:String>3rd</x:String>
+                            <x:String>4th</x:String>
+                            <x:String>5th</x:String>
+                            <x:String>6th</x:String>
+                            <x:String>7th</x:String>
+                            <x:String>8th</x:String>
+                            <x:String>9th</x:String>
+                            <x:String>10th</x:String>
+                            <x:String>11th</x:String>
+                            <x:String>12th</x:String>
+                            <x:String>13th</x:String>
+                            <x:String>14th</x:String>
+                            <x:String>15th</x:String>
+                            <x:String>16th</x:String>
+                            <x:String>17th</x:String>
+                            <x:String>18th</x:String>
+                            <x:String>19th</x:String>
+                            <x:String>20th</x:String>
+                            <x:String>21st</x:String>
+                            <x:String>22nd</x:String>
+                            <x:String>23rd</x:String>
+                            <x:String>24th</x:String>
+                            <x:String>25th</x:String>
+                            <x:String>26th</x:String>
+                            <x:String>27th</x:String>
+                            <x:String>28th</x:String>
+                            <x:String>29th</x:String>
+                            <x:String>30th</x:String>
+                            <x:String>31st</x:String>
+                          </scg:List>
+                        </uix:NSelectItem.Items>
+                        <uix:NSelectItem.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="610, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="2e05112e-23f4-4cb6-a285-5b804c8768c6" ImageBase64="" InformativeScreenshot="9de46ac41d1125cfeef876a9d7d7443f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NSelectItem.Target>
+                      </uix:NSelectItem>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_5">
+                        <ui:LogMessage.Level>
+                          <InArgument x:TypeArguments="ui:LogLevel">
+                            <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Level>
+                        <ui:LogMessage.Message>
+                          <InArgument x:TypeArguments="x:Object">
+                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">"Selected the option in the options drop down"</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Message>
+                      </ui:LogMessage>
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_6">
+                        <ui:LogMessage.Level>
+                          <InArgument x:TypeArguments="ui:LogLevel">
+                            <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Level>
+                        <ui:LogMessage.Message>
+                          <InArgument x:TypeArguments="x:Object">
+                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"Month and Options field not visibale after selecting Annually frquency"</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Message>
+                      </ui:LogMessage>
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                  <uix:NCheckState.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="241, 474, 39, 13" CvTextArgument="Month" CvType="Text" DesignTimeRectangle="242, 474, 344, 53" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Month'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' visibleinnertext='Month' class='w-100' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' visibleinnertext='Month' class='w-100' tag='DIV' type='' aaname='' check:text='Month' /&gt;" Guid="169dd61d-70d0-42a1-b6b3-d35f0da15890" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAA5CAYAAAB6WJNxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVPSURBVHhe7dw/bBtVAMdxbx0zZszoMaPHjBk9evQCOlGkGihgWuhfaF2KhGGyxBIxRSw1A8gqqHLVSoS2UZ0aISfNn4sJzVEhcYXGXNU4/XHv/By7wanaJD1V1vcjPSn37k8yffXyck5CAIBYEFwAiAnBBYCYEFwAiElfcAP5bkONRjhc3871BL7bOdfwwisPTuCWVXCyypWq8uwcAAyjXnADV1OZhBKJcKTyqvY3N/BUdpKdc+O5p8+9KH9GpVxWTqGsRljuoFbURPjckWxZ7kGWHABeMYODm0gqV+mtNwN3WtlRe25ncH1PrufvsuoNV82eK8/vnTUrWmcsfM5EUbXwOb3gTsv1fXnewa6gAeBVsUtwE0o6FXlR+QI1pjLb893gBl5VpWyqN59yNG0KKrMaHo3mxpL2XGJE6WJVbqOkye71Zoxm9fX3F6PgJhKjGunOm2eZ5S8ADJFdg2tiWDa/4wc1lSb75qPgeqrkxqPjsbSjvDPZiWV4rhKuULvBTaSyyhccTUar47RKN35WueQoZc6NppWfqmjuWmeFa4KbzhWUz3Sem8yFwbc/GgAMgwHBTclx0mFADykz3ZA30wnieDanjNkKMMGdr9htgYJmou0FT9W8CaXZirhjg5tSITrp23PjyodL42duKZi+N6aUNgHOTEV7vAAwLAYEd0KF8rQcsx0wmVfRMbHsmwuDe9muSruRDG9WYyodXpdQeuqavrHBLT4V3GQYXO8Zwe380Ww7uGmCC2C4DAxucaahShRJc2ziV1KtYUNpgnvDRnEynI+i6GumMBFeO6Js+eb2CpfgAkDP4OCGJfSqhc5eq91a8D27jWC2FFZrKkb7uklli2VVpgtKm33apKOy6z4zuDLPMSvlHXu4BBfAsNsluGHp/BkVJ0wYO388C/qDa1ambkXFzFh4vbnHjJTyFVfB9lsKuwQ3aITfZ6Rzz6GMvrrUeUuB4AIYdr3gmndmo0+aufZ1sDCVnvnUWfe9WF/u/z5pFua1VlWlOqNG96bQwOeE93qmv0bgqVathPeZOa/zXNe+yxvY79M9BoAh0RdcAMDLRHABICYEFwBiQnABICYEFwBiQnABICYEFwBiQnABICYEFwBiQnABICYEFwBish3cIAjUbDZVr9c1OzvLYDAYjH0M01LT1Ha7bSvbF9yVlRXNzc2p1WrZGQDAXpmWrq2taX193c70BdfEdmNjwx4BAPbL7BwsLy3Zo77gmiXwkydP7BEAYL9MU+8uLNijHcEFAByshfl5+xXBBYCXiuACQEwILgDEhOACQEwILgDEhOACQEwILgD0+ct/YL8abHOzrVbrX21tvfhnFQguAFjN5po+On1Bl779zs487fHjTV3+saoTZy7I++O+nX1+BBcArIcPN3T+4pd67Y239cOVq1Fgu7a2tnRrdk6Hj+R16uPP9ODvf+yZ50dwAaDP/ft/6uz5z3Xk6Ie6ev0nPXr0KJpfXFrRsRPn9MmFoubvLmlrD//+gOACwA5rv6/r3Kdf6L3jZ3R7rq479V+jrYbjJ89rfmExWu3uBcEFgB3MP5pxV3/TqbMX9c77J/XmWx/o9cNHdePW7T3H1iC4ALCLm7M1vXvstA7n8rpSvW5n947gAsAuzCtgN8NVbe3OL3ZmfwguAMSE4AJATAguAMSE4AJATAguAMSE4AJATAguAMRkYHBrtZo2NjbsEQBgv4Ig0PLSkj3qC+7y8rIWFxfVarXsDABgr0xL7927J8/z7ExfcDc3N9VsNlWv16PtBQaDwWDsfZiWrq6uqt1u28r2BRcA8HIRXACIhfQfMRLpD/nXaRAAAAAASUVORK5CYII=" InformativeScreenshot="9ed839aabeaab57c616231ded28bf157.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NCheckState.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NCheckState>
+              </Sequence>
+              <Sequence x:Key="BiWeekly" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="977, 424, 347, 32" CvTextArea="991, 432, 30, 16" CvTextArgument="Daily" CvType="InputBox" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Daily'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='5' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' check:text='Daily' /&gt;" Guid="7f207c4a-c943-4d2b-8fe4-901660033b8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOmSURBVHhe7dy/bxtlHMdx/xc3ZmT02NGjR48es4AQqVQDBUwL/QmNQ5EwTIwevWEGpAhQ5UqVsGit2jVCSWo7jjGJiZC4Qm0uqu188F0ep9e0oa1/XOvq/ZK+0j2PM7/16PE5IQEAAkFwASAgh8F1HEfNZlOVSkXFYpFhGIaZYNyWuk3t9/umsr7gbm5uqlwuq9vtmh0AwLjclrZaLe3s7JgdX3Dd2HY6HbMCAEzKvTmo12pm5QuuewTe3983KwDApNym3t3YMKsjwQUATNfG+rp5IrgAMFMEFwACQnABICAvUXBtNdbaB4/trGKhlAoHKwB4JUw1uIVUSKHQaBZ0YjGl3JpjPn2Kta8VsRJadf+c4AJ4BU0/uKlRJh3ZpYzi1gmlS2brWRFcAC/AX/Y98/RkvV5f3e6/GgzGe212hsE9YOcWFVrMyR6tC2nFX7O8U/BCdHiibZgP/JH1PRdSlsK+Yjv5hEKxrFkBwHQ0my19fHFF33z7ndl51IMHPX3/Y17nLq2o/ceu2X0+Mw/uIyFtZBS14sqayDYyMS+e3s3tMcFVKa1wOK2D5DrKJy3FsuauFwCm5P79jpavfqXX33pHP1y77gV2ZDAY6FaxrKVTSV345HPd+/sf88nzCSi4i8p5R1xHtu27020cE1n/8zC16XBEGS/SBaWsmOgtgFnY3f1Tl5e/0KnTH+n6jZ+0t7fn7Vdrmzpz7oo+XUlr/W5NgzF/iRvsCXcY3LVsQlFzpXAwTwuue8gNK+IW1z3tjk7EADADrd93dOWzL/X+2Uu6Xa7oTuVX76rh7PllrW9UvdPuuAK9w3XySVnRtAqjC93jInskuF5oIxllh+HlOgHALLn/86Cx9ZsuXL6qdz84r5Nvf6g3lk7r51u3J4qta4bBddTOpxT1vaVgr76pUCyjhnerYKuUict6luCqoUzEksV1AoCA3CyW9N6Zi1pKJHUtf8PsTmb6wf3f93AbWk1EteB+vhBVKpMehjWh/NF3bx8LrvsFW+ThF2wAMGPuK2A3h6fa0p1fzM7kphrcWXKDy3UCgHk2H8G180qGR286AMB8eumD287FFbIiShz+QgIA5tPcXCkAwLwjuAAQEIILAAEhuAAQEIILAAF5YnBLpZI6nY5ZAQAm5TiO6rWaWfmCW6/XVa1W1e12zQ4AYFxuS7e3t9VuP/zx1mFwe72ems2mKpWKd73AMAzDjD9uS7e2ttTv901lfcEFAMwWwQWAQEj/ARC8B7mLJVE8AAAAAElFTkSuQmCC" InformativeScreenshot="b115058922a653a6ee70eaadb46b17f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NSelectItem_5" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NSelectItem.Item>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">str_in_Frequency</CSharpValue>
+                    </InArgument>
+                  </uix:NSelectItem.Item>
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="8">
+                      <x:String>Annually</x:String>
+                      <x:String>BiMonthly</x:String>
+                      <x:String>BiWeekly</x:String>
+                      <x:String>Daily</x:String>
+                      <x:String>Monthly</x:String>
+                      <x:String>Quarterly</x:String>
+                      <x:String>SemiAnnually</x:String>
+                      <x:String>Weekly</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7f358283-fdd2-48ef-bfc7-717de24b4b75" ImageBase64="" InformativeScreenshot="e63e1063e309727116b498aa03d7ff8d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="954,143" sap2010:WorkflowViewState.IdRef="LogMessage_7">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"Selected BiWeekly frequency in Biweekly drop down "</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+                <uix:NCheckState DisplayName="Check App State 'Options'" sap:VirtualizedContainerService.HintSize="954,869" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,652" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="240, 497, 347, 31" CvType="InputBox" DesignTimeRectangle="242, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='6' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' /&gt;" Guid="2c742762-f60e-4ab9-8904-67dec6057c4a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIxSURBVHhe7dxda9NgGIdxP6weWGG+TJ2b7lVX6gRfvoh44InK2GAguJW1iwjtmtbG2tYi6HSJKWvSv6Y8SiwbzNQ9R9cPbshz9/wihDTnBACwguACgCV/ghuGoTzPk+M4KhaLDMMwzASTtDRpahRFprKp4DYaDZXLZQVBYDYAgKySlrZaLXU6HbNJBTeJre/75gQAmFTy5KDuuuaUCm5yCzwcDs0JADCppKn71ao5jQUXAPB/VSsVc0VwAeBMEVwAsITgAoAlBBcALCG4AGAJwQUASwguAKR8+Xpgro43GEQKgh+K43//rwLBBQDD81q6s1TQ02fPzeZvR0cDvXi1ofnlgrqfemZ7egQXAIzDQ1/5tSc6f/GqXq5vjgL7WxzH2imWlZua0eLdBzr49t38cnoEFwBSer3PWsk/1NT0bW1uvVa/3x/ta25Ds/Oruld4pMq+qzjD5w8ILgCMaX3saPX+Y92YW9Zu2dGe8270qGFuIa9KtTa6282C4ALAmORDM++bH7S4sqZrNxd06cotXchN683ObubYJgguAJxgu1jS9dkl5S7PaH1jy2yzI7gAcILkFbDtX3e1pb23ZjMZggsAlhBcALCE4AKAJQQXACwhuABgCcEFAEsILgBYcmxwS6WSfN83JwDApMIwVN11zSkV3Hq9rlqtpiAIzAYAkFXS0na7rW63azap4A4GA3meJ8dxRo8XGIZhmOyTtLTZbCqKIlPZVHABAGeL4AKAFdJPxVbmxPD169IAAAAASUVORK5CYII=" InformativeScreenshot="13243c79c853b8435e2a80a5ce68c691.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_6" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NSelectItem.Item>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">str_in_BiWeeklyOptions</CSharpValue>
+                          </InArgument>
+                        </uix:NSelectItem.Item>
+                        <uix:NSelectItem.Items>
+                          <scg:List x:TypeArguments="x:String" Capacity="7">
+                            <x:String>Sunday</x:String>
+                            <x:String>Monday</x:String>
+                            <x:String>Tuesday</x:String>
+                            <x:String>Wednesday</x:String>
+                            <x:String>Thursday</x:String>
+                            <x:String>Friday</x:String>
+                            <x:String>Saturday</x:String>
+                          </scg:List>
+                        </uix:NSelectItem.Items>
+                        <uix:NSelectItem.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="242, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7a8cfae6-9ec2-48da-81f2-f8678f775069" ImageBase64="" InformativeScreenshot="3903e47c6320eeb5e465e7de00ed3613.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NSelectItem.Target>
+                      </uix:NSelectItem>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_8">
+                        <ui:LogMessage.Level>
+                          <InArgument x:TypeArguments="ui:LogLevel">
+                            <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Level>
+                        <ui:LogMessage.Message>
+                          <InArgument x:TypeArguments="x:Object">
+                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">"Selected the Options in the options drop down"</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Message>
+                      </ui:LogMessage>
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                  <uix:NCheckState.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="241, 475, 46, 14" CvTextArgument="Options" CvType="Text" DesignTimeRectangle="242, 474, 344, 53" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Options'" FullSelectorArgument="&lt;webctrl class='w-100' parentid='collapsePaymentInfoArea' tag='DIV' innertext='Options' /&gt;" FuzzySelectorArgument="&lt;webctrl class='w-100' parentid='collapsePaymentInfoArea' tag='DIV' innertext='Options' type='' aaname='' check:text='Options' /&gt;" Guid="c0994a42-1c80-4e89-ac70-19116771c666" ImageBase64="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" InformativeScreenshot="51966edc2fb748cc75dac9a5f434aadb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NCheckState.Target>
+                </uix:NCheckState>
+              </Sequence>
+              <Sequence x:Key="BiMonthly" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="977, 424, 347, 32" CvTextArea="991, 432, 30, 16" CvTextArgument="Daily" CvType="InputBox" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Daily'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='5' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' check:text='Daily' /&gt;" Guid="7f207c4a-c943-4d2b-8fe4-901660033b8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOmSURBVHhe7dy/bxtlHMdx/xc3ZmT02NGjR48es4AQqVQDBUwL/QmNQ5EwTIwevWEGpAhQ5UqVsGit2jVCSWo7jjGJiZC4Qm0uqu188F0ep9e0oa1/XOvq/ZK+0j2PM7/16PE5IQEAAkFwASAgh8F1HEfNZlOVSkXFYpFhGIaZYNyWuk3t9/umsr7gbm5uqlwuq9vtmh0AwLjclrZaLe3s7JgdX3Dd2HY6HbMCAEzKvTmo12pm5QuuewTe3983KwDApNym3t3YMKsjwQUATNfG+rp5IrgAMFMEFwACQnABICAvUXBtNdbaB4/trGKhlAoHKwB4JUw1uIVUSKHQaBZ0YjGl3JpjPn2Kta8VsRJadf+c4AJ4BU0/uKlRJh3ZpYzi1gmlS2brWRFcAC/AX/Y98/RkvV5f3e6/GgzGe212hsE9YOcWFVrMyR6tC2nFX7O8U/BCdHiibZgP/JH1PRdSlsK+Yjv5hEKxrFkBwHQ0my19fHFF33z7ndl51IMHPX3/Y17nLq2o/ceu2X0+Mw/uIyFtZBS14sqayDYyMS+e3s3tMcFVKa1wOK2D5DrKJy3FsuauFwCm5P79jpavfqXX33pHP1y77gV2ZDAY6FaxrKVTSV345HPd+/sf88nzCSi4i8p5R1xHtu27020cE1n/8zC16XBEGS/SBaWsmOgtgFnY3f1Tl5e/0KnTH+n6jZ+0t7fn7Vdrmzpz7oo+XUlr/W5NgzF/iRvsCXcY3LVsQlFzpXAwTwuue8gNK+IW1z3tjk7EADADrd93dOWzL/X+2Uu6Xa7oTuVX76rh7PllrW9UvdPuuAK9w3XySVnRtAqjC93jInskuF5oIxllh+HlOgHALLn/86Cx9ZsuXL6qdz84r5Nvf6g3lk7r51u3J4qta4bBddTOpxT1vaVgr76pUCyjhnerYKuUict6luCqoUzEksV1AoCA3CyW9N6Zi1pKJHUtf8PsTmb6wf3f93AbWk1EteB+vhBVKpMehjWh/NF3bx8LrvsFW+ThF2wAMGPuK2A3h6fa0p1fzM7kphrcWXKDy3UCgHk2H8G180qGR286AMB8eumD287FFbIiShz+QgIA5tPcXCkAwLwjuAAQEIILAAEhuAAQEIILAAF5YnBLpZI6nY5ZAQAm5TiO6rWaWfmCW6/XVa1W1e12zQ4AYFxuS7e3t9VuP/zx1mFwe72ems2mKpWKd73AMAzDjD9uS7e2ttTv901lfcEFAMwWwQWAQEj/ARC8B7mLJVE8AAAAAElFTkSuQmCC" InformativeScreenshot="b115058922a653a6ee70eaadb46b17f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_7" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NSelectItem.Item>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">str_in_Frequency</CSharpValue>
+                    </InArgument>
+                  </uix:NSelectItem.Item>
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="8">
+                      <x:String>Annually</x:String>
+                      <x:String>BiMonthly</x:String>
+                      <x:String>BiWeekly</x:String>
+                      <x:String>Daily</x:String>
+                      <x:String>Monthly</x:String>
+                      <x:String>Quarterly</x:String>
+                      <x:String>SemiAnnually</x:String>
+                      <x:String>Weekly</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7f358283-fdd2-48ef-bfc7-717de24b4b75" ImageBase64="" InformativeScreenshot="e63e1063e309727116b498aa03d7ff8d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_9">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">"Selected the BiMonthly frequency in the BiMonthly drop down"</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+              </Sequence>
+              <Sequence x:Key="Quarterly" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="977, 424, 347, 32" CvTextArea="991, 432, 30, 16" CvTextArgument="Daily" CvType="InputBox" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Daily'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='5' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' check:text='Daily' /&gt;" Guid="7f207c4a-c943-4d2b-8fe4-901660033b8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOmSURBVHhe7dy/bxtlHMdx/xc3ZmT02NGjR48es4AQqVQDBUwL/QmNQ5EwTIwevWEGpAhQ5UqVsGit2jVCSWo7jjGJiZC4Qm0uqu188F0ep9e0oa1/XOvq/ZK+0j2PM7/16PE5IQEAAkFwASAgh8F1HEfNZlOVSkXFYpFhGIaZYNyWuk3t9/umsr7gbm5uqlwuq9vtmh0AwLjclrZaLe3s7JgdX3Dd2HY6HbMCAEzKvTmo12pm5QuuewTe3983KwDApNym3t3YMKsjwQUATNfG+rp5IrgAMFMEFwACQnABICAvUXBtNdbaB4/trGKhlAoHKwB4JUw1uIVUSKHQaBZ0YjGl3JpjPn2Kta8VsRJadf+c4AJ4BU0/uKlRJh3ZpYzi1gmlS2brWRFcAC/AX/Y98/RkvV5f3e6/GgzGe212hsE9YOcWFVrMyR6tC2nFX7O8U/BCdHiibZgP/JH1PRdSlsK+Yjv5hEKxrFkBwHQ0my19fHFF33z7ndl51IMHPX3/Y17nLq2o/ceu2X0+Mw/uIyFtZBS14sqayDYyMS+e3s3tMcFVKa1wOK2D5DrKJy3FsuauFwCm5P79jpavfqXX33pHP1y77gV2ZDAY6FaxrKVTSV345HPd+/sf88nzCSi4i8p5R1xHtu27020cE1n/8zC16XBEGS/SBaWsmOgtgFnY3f1Tl5e/0KnTH+n6jZ+0t7fn7Vdrmzpz7oo+XUlr/W5NgzF/iRvsCXcY3LVsQlFzpXAwTwuue8gNK+IW1z3tjk7EADADrd93dOWzL/X+2Uu6Xa7oTuVX76rh7PllrW9UvdPuuAK9w3XySVnRtAqjC93jInskuF5oIxllh+HlOgHALLn/86Cx9ZsuXL6qdz84r5Nvf6g3lk7r51u3J4qta4bBddTOpxT1vaVgr76pUCyjhnerYKuUict6luCqoUzEksV1AoCA3CyW9N6Zi1pKJHUtf8PsTmb6wf3f93AbWk1EteB+vhBVKpMehjWh/NF3bx8LrvsFW+ThF2wAMGPuK2A3h6fa0p1fzM7kphrcWXKDy3UCgHk2H8G180qGR286AMB8eumD287FFbIiShz+QgIA5tPcXCkAwLwjuAAQEIILAAEhuAAQEIILAAF5YnBLpZI6nY5ZAQAm5TiO6rWaWfmCW6/XVa1W1e12zQ4AYFxuS7e3t9VuP/zx1mFwe72ems2mKpWKd73AMAzDjD9uS7e2ttTv901lfcEFAMwWwQWAQEj/ARC8B7mLJVE8AAAAAElFTkSuQmCC" InformativeScreenshot="b115058922a653a6ee70eaadb46b17f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_8" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NSelectItem.Item>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">str_in_Frequency</CSharpValue>
+                    </InArgument>
+                  </uix:NSelectItem.Item>
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="8">
+                      <x:String>Annually</x:String>
+                      <x:String>BiMonthly</x:String>
+                      <x:String>BiWeekly</x:String>
+                      <x:String>Daily</x:String>
+                      <x:String>Monthly</x:String>
+                      <x:String>Quarterly</x:String>
+                      <x:String>SemiAnnually</x:String>
+                      <x:String>Weekly</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7f358283-fdd2-48ef-bfc7-717de24b4b75" ImageBase64="" InformativeScreenshot="e63e1063e309727116b498aa03d7ff8d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_10">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">"Selected Quarterliy frequency"</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+              </Sequence>
+              <Sequence x:Key="SemiAnnually" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="977, 424, 347, 32" CvTextArea="991, 432, 30, 16" CvTextArgument="Daily" CvType="InputBox" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Daily'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='5' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' check:text='Daily' /&gt;" Guid="7f207c4a-c943-4d2b-8fe4-901660033b8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOmSURBVHhe7dy/bxtlHMdx/xc3ZmT02NGjR48es4AQqVQDBUwL/QmNQ5EwTIwevWEGpAhQ5UqVsGit2jVCSWo7jjGJiZC4Qm0uqu188F0ep9e0oa1/XOvq/ZK+0j2PM7/16PE5IQEAAkFwASAgh8F1HEfNZlOVSkXFYpFhGIaZYNyWuk3t9/umsr7gbm5uqlwuq9vtmh0AwLjclrZaLe3s7JgdX3Dd2HY6HbMCAEzKvTmo12pm5QuuewTe3983KwDApNym3t3YMKsjwQUATNfG+rp5IrgAMFMEFwACQnABICAvUXBtNdbaB4/trGKhlAoHKwB4JUw1uIVUSKHQaBZ0YjGl3JpjPn2Kta8VsRJadf+c4AJ4BU0/uKlRJh3ZpYzi1gmlS2brWRFcAC/AX/Y98/RkvV5f3e6/GgzGe212hsE9YOcWFVrMyR6tC2nFX7O8U/BCdHiibZgP/JH1PRdSlsK+Yjv5hEKxrFkBwHQ0my19fHFF33z7ndl51IMHPX3/Y17nLq2o/ceu2X0+Mw/uIyFtZBS14sqayDYyMS+e3s3tMcFVKa1wOK2D5DrKJy3FsuauFwCm5P79jpavfqXX33pHP1y77gV2ZDAY6FaxrKVTSV345HPd+/sf88nzCSi4i8p5R1xHtu27020cE1n/8zC16XBEGS/SBaWsmOgtgFnY3f1Tl5e/0KnTH+n6jZ+0t7fn7Vdrmzpz7oo+XUlr/W5NgzF/iRvsCXcY3LVsQlFzpXAwTwuue8gNK+IW1z3tjk7EADADrd93dOWzL/X+2Uu6Xa7oTuVX76rh7PllrW9UvdPuuAK9w3XySVnRtAqjC93jInskuF5oIxllh+HlOgHALLn/86Cx9ZsuXL6qdz84r5Nvf6g3lk7r51u3J4qta4bBddTOpxT1vaVgr76pUCyjhnerYKuUict6luCqoUzEksV1AoCA3CyW9N6Zi1pKJHUtf8PsTmb6wf3f93AbWk1EteB+vhBVKpMehjWh/NF3bx8LrvsFW+ThF2wAMGPuK2A3h6fa0p1fzM7kphrcWXKDy3UCgHk2H8G180qGR286AMB8eumD287FFbIiShz+QgIA5tPcXCkAwLwjuAAQEIILAAEhuAAQEIILAAF5YnBLpZI6nY5ZAQAm5TiO6rWaWfmCW6/XVa1W1e12zQ4AYFxuS7e3t9VuP/zx1mFwe72ems2mKpWKd73AMAzDjD9uS7e2ttTv901lfcEFAMwWwQWAQEj/ARC8B7mLJVE8AAAAAElFTkSuQmCC" InformativeScreenshot="b115058922a653a6ee70eaadb46b17f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_9" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NSelectItem.Item>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">str_in_Frequency</CSharpValue>
+                    </InArgument>
+                  </uix:NSelectItem.Item>
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="8">
+                      <x:String>Annually</x:String>
+                      <x:String>BiMonthly</x:String>
+                      <x:String>BiWeekly</x:String>
+                      <x:String>Daily</x:String>
+                      <x:String>Monthly</x:String>
+                      <x:String>Quarterly</x:String>
+                      <x:String>SemiAnnually</x:String>
+                      <x:String>Weekly</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7f358283-fdd2-48ef-bfc7-717de24b4b75" ImageBase64="" InformativeScreenshot="e63e1063e309727116b498aa03d7ff8d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_11">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">"Selected SemiAnnually frequency"</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+              </Sequence>
+              <Sequence x:Key="Weekly" sap:VirtualizedContainerService.HintSize="1016,1561" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="977, 424, 347, 32" CvTextArea="991, 432, 30, 16" CvTextArgument="Daily" CvType="InputBox" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Daily'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='5' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' check:text='Daily' /&gt;" Guid="7f207c4a-c943-4d2b-8fe4-901660033b8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOmSURBVHhe7dy/bxtlHMdx/xc3ZmT02NGjR48es4AQqVQDBUwL/QmNQ5EwTIwevWEGpAhQ5UqVsGit2jVCSWo7jjGJiZC4Qm0uqu188F0ep9e0oa1/XOvq/ZK+0j2PM7/16PE5IQEAAkFwASAgh8F1HEfNZlOVSkXFYpFhGIaZYNyWuk3t9/umsr7gbm5uqlwuq9vtmh0AwLjclrZaLe3s7JgdX3Dd2HY6HbMCAEzKvTmo12pm5QuuewTe3983KwDApNym3t3YMKsjwQUATNfG+rp5IrgAMFMEFwACQnABICAvUXBtNdbaB4/trGKhlAoHKwB4JUw1uIVUSKHQaBZ0YjGl3JpjPn2Kta8VsRJadf+c4AJ4BU0/uKlRJh3ZpYzi1gmlS2brWRFcAC/AX/Y98/RkvV5f3e6/GgzGe212hsE9YOcWFVrMyR6tC2nFX7O8U/BCdHiibZgP/JH1PRdSlsK+Yjv5hEKxrFkBwHQ0my19fHFF33z7ndl51IMHPX3/Y17nLq2o/ceu2X0+Mw/uIyFtZBS14sqayDYyMS+e3s3tMcFVKa1wOK2D5DrKJy3FsuauFwCm5P79jpavfqXX33pHP1y77gV2ZDAY6FaxrKVTSV345HPd+/sf88nzCSi4i8p5R1xHtu27020cE1n/8zC16XBEGS/SBaWsmOgtgFnY3f1Tl5e/0KnTH+n6jZ+0t7fn7Vdrmzpz7oo+XUlr/W5NgzF/iRvsCXcY3LVsQlFzpXAwTwuue8gNK+IW1z3tjk7EADADrd93dOWzL/X+2Uu6Xa7oTuVX76rh7PllrW9UvdPuuAK9w3XySVnRtAqjC93jInskuF5oIxllh+HlOgHALLn/86Cx9ZsuXL6qdz84r5Nvf6g3lk7r51u3J4qta4bBddTOpxT1vaVgr76pUCyjhnerYKuUict6luCqoUzEksV1AoCA3CyW9N6Zi1pKJHUtf8PsTmb6wf3f93AbWk1EteB+vhBVKpMehjWh/NF3bx8LrvsFW+ThF2wAMGPuK2A3h6fa0p1fzM7kphrcWXKDy3UCgHk2H8G180qGR286AMB8eumD287FFbIiShz+QgIA5tPcXCkAwLwjuAAQEIILAAEhuAAQEIILAAF5YnBLpZI6nY5ZAQAm5TiO6rWaWfmCW6/XVa1W1e12zQ4AYFxuS7e3t9VuP/zx1mFwe72ems2mKpWKd73AMAzDjD9uS7e2ttTv901lfcEFAMwWwQWAQEj/ARC8B7mLJVE8AAAAAElFTkSuQmCC" InformativeScreenshot="b115058922a653a6ee70eaadb46b17f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NSelectItem_10" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NSelectItem.Item>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">str_in_Frequency</CSharpValue>
+                    </InArgument>
+                  </uix:NSelectItem.Item>
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="8">
+                      <x:String>Annually</x:String>
+                      <x:String>BiMonthly</x:String>
+                      <x:String>BiWeekly</x:String>
+                      <x:String>Daily</x:String>
+                      <x:String>Monthly</x:String>
+                      <x:String>Quarterly</x:String>
+                      <x:String>SemiAnnually</x:String>
+                      <x:String>Weekly</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="979, 426, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7f358283-fdd2-48ef-bfc7-717de24b4b75" ImageBase64="" InformativeScreenshot="e63e1063e309727116b498aa03d7ff8d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="954,143" sap2010:WorkflowViewState.IdRef="LogMessage_12">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">"Selected BiWeekly frequency in weekly drop down "</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+                <uix:NCheckState DisplayName="Check App State 'Options'" sap:VirtualizedContainerService.HintSize="954,869" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,652" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="240, 497, 347, 31" CvType="InputBox" DesignTimeRectangle="242, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' idx='6' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapsePaymentInfoArea' tag='DIV' class='ngx-select__toggle btn form-control' type='' aaname='' /&gt;" Guid="2c742762-f60e-4ab9-8904-67dec6057c4a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVwAAAAhCAYAAACV3ROHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIxSURBVHhe7dxda9NgGIdxP6weWGG+TJ2b7lVX6gRfvoh44InK2GAguJW1iwjtmtbG2tYi6HSJKWvSv6Y8SiwbzNQ9R9cPbshz9/wihDTnBACwguACgCV/ghuGoTzPk+M4KhaLDMMwzASTtDRpahRFprKp4DYaDZXLZQVBYDYAgKySlrZaLXU6HbNJBTeJre/75gQAmFTy5KDuuuaUCm5yCzwcDs0JADCppKn71ao5jQUXAPB/VSsVc0VwAeBMEVwAsITgAoAlBBcALCG4AGAJwQUASwguAKR8+Xpgro43GEQKgh+K43//rwLBBQDD81q6s1TQ02fPzeZvR0cDvXi1ofnlgrqfemZ7egQXAIzDQ1/5tSc6f/GqXq5vjgL7WxzH2imWlZua0eLdBzr49t38cnoEFwBSer3PWsk/1NT0bW1uvVa/3x/ta25Ds/Oruld4pMq+qzjD5w8ILgCMaX3saPX+Y92YW9Zu2dGe8270qGFuIa9KtTa6282C4ALAmORDM++bH7S4sqZrNxd06cotXchN683ObubYJgguAJxgu1jS9dkl5S7PaH1jy2yzI7gAcILkFbDtX3e1pb23ZjMZggsAlhBcALCE4AKAJQQXACwhuABgCcEFAEsILgBYcmxwS6WSfN83JwDApMIwVN11zSkV3Hq9rlqtpiAIzAYAkFXS0na7rW63azap4A4GA3meJ8dxRo8XGIZhmOyTtLTZbCqKIlPZVHABAGeL4AKAFdJPxVbmxPD169IAAAAASUVORK5CYII=" InformativeScreenshot="13243c79c853b8435e2a80a5ce68c691.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NSelectItem DisplayName="Select Item 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_11" ScopeIdentifier="a1703b98-c287-4b7f-bff1-38e58265e4a1" Version="V3">
+                        <uix:NSelectItem.Item>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">str_in_WeeklyOptions</CSharpValue>
+                          </InArgument>
+                        </uix:NSelectItem.Item>
+                        <uix:NSelectItem.Items>
+                          <scg:List x:TypeArguments="x:String" Capacity="7">
+                            <x:String>Sunday</x:String>
+                            <x:String>Monday</x:String>
+                            <x:String>Tuesday</x:String>
+                            <x:String>Wednesday</x:String>
+                            <x:String>Thursday</x:String>
+                            <x:String>Friday</x:String>
+                            <x:String>Saturday</x:String>
+                          </scg:List>
+                        </uix:NSelectItem.Items>
+                        <uix:NSelectItem.Target>
+                          <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" DesignTimeRectangle="242, 498, 344, 29" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="7a8cfae6-9ec2-48da-81f2-f8678f775069" ImageBase64="" InformativeScreenshot="3903e47c6320eeb5e465e7de00ed3613.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NSelectItem.Target>
+                      </uix:NSelectItem>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_13">
+                        <ui:LogMessage.Level>
+                          <InArgument x:TypeArguments="ui:LogLevel">
+                            <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Level>
+                        <ui:LogMessage.Message>
+                          <InArgument x:TypeArguments="x:Object">
+                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">"Selected the Options in the options drop down"</CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Message>
+                      </ui:LogMessage>
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                  <uix:NCheckState.Target>
+                    <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="241, 475, 46, 14" CvTextArgument="Options" CvType="Text" DesignTimeRectangle="242, 474, 344, 53" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'Options'" FullSelectorArgument="&lt;webctrl class='w-100' parentid='collapsePaymentInfoArea' tag='DIV' innertext='Options' /&gt;" FuzzySelectorArgument="&lt;webctrl class='w-100' parentid='collapsePaymentInfoArea' tag='DIV' innertext='Options' type='' aaname='' check:text='Options' /&gt;" Guid="c0994a42-1c80-4e89-ac70-19116771c666" ImageBase64="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" InformativeScreenshot="51966edc2fb748cc75dac9a5f434aadb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                  </uix:NCheckState.Target>
+                </uix:NCheckState>
+              </Sequence>
+            </Switch>
+            <cr:passedStep sap:VirtualizedContainerService.HintSize="1056,345" sap2010:WorkflowViewState.IdRef="passedStep_1" str_in_actualStep="Selected the Frequency in Frequency drop down" str_in_expectedStep="Step">
+              <cr:passedStep.Actual_Result>
+                <InArgument x:TypeArguments="x:String" />
+              </cr:passedStep.Actual_Result>
+              <cr:passedStep.Expected_Result>
+                <InArgument x:TypeArguments="x:String" />
+              </cr:passedStep.Expected_Result>
+              <cr:passedStep.str_in_reportId>
+                <InArgument x:TypeArguments="x:Int32">
+                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">str_in_reportid</CSharpValue>
+                </InArgument>
+              </cr:passedStep.str_in_reportId>
+              <cr:passedStep.str_in_testId>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">str_in_testid</CSharpValue>
+                </InArgument>
+              </cr:passedStep.str_in_testId>
+            </cr:passedStep>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1382, 744" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAA+ASURBVHhe1ZvpcxVVGsaZj35x9K+YD/MXUCWLDDqIIqCIiOzIqiCKjs5M1eiMpaUzMqUyjIoLJEAWCPuibGEPZANC9pDcNSEsYZEkZL288zxv9+nbt9N3CYxBr/XU6e675Dy/dzmnm3KYiPzmXlVfXy+hUEgCgcCQKxKJSENDg0SjUUzFf36Z6L4AnD9/HsPP/+rr65Pu7m7p7OyU27dvy/Xr1+XKlSsKv6qqSoHg5TvHdPpVAIjFYgqhp6dH7ty5oxBu3LihEI4fPy6NjY33nAm/GgAGgjsTCIFzOHDggMJgWeDlO9dkGnY/dTzUAPwg1NXVybZt26SpqUkuXbqkwsvXrJ+G3Y+JoQLQ39+fFAIDkZ+fL9euXdOmSACDKYdfPACa98oNIRwOKwD2B0JgRjc3N2tW4+Vr2q1fJQCj3t5ejXZeXp5C4bmBwOstLS38CV/jRj8rgNar1+9bLa3XUupCVZ0CuHv3rv5NA8HaI0TSNkZfAG9tD8iKgiZZsdXS29uD8oYeB+R1XF+5LSBvQkMBgGpuvaryBVBdpyXgfhFCW1ubBINBaUlTDr4AaHpxbqMsyWuUxfmNMB+QpZtxjPNFeRdlGSC8tqVxyAG45QaQk5OjzY8pT9PcHJWVlsnZs2elAnNkFrAv4JU5AJpfCvNLbACvAoACIYAtTQBy8YECMKqqbZAdO3bImjVrZO3atZKVlaUlsXnzZtm0aZNkZWdLbm6ulJSU+PaE5BlgR5/jckR7Ye5FeSXnoszPaVAYb+0YuhIw8gMQCDXL+coaOVtRpdlAIJcvX5bW1lZthNwfVFdXS1FRkRw6dEiv45UaAGt+RQH6AEAw2h8fjMpnR1pk1eFm+eRQVLKKL8uxxltDDoDyg+AVl8Suri7p6OiQW7duaT+gcZYGywKv1ADY8Jj+rHtG/vOjLfLOrqC8bgP5656QfHGs5YEAoPxMu2XuGwihvb09AQIBDBs27LeYXnIA7PSsdeoVpPyniPxyXFsAGNSSfFzPbXhgANyKXrqi8gIwEHjz5IZgAEAPYYr+AGiWkWfHZ83/ywZA0xQb4JIMmuCDehkAXgg3b96U8vIMALy5zVrmqMWINut/JfYGNE4t39ooy6BfKoDu3lisuycW6+qxdovcMlu30e0AUJ4egFn32e0XIgv+faRZ3gAUwqCWFeC9/8M+wLz83kunS1dR0zpej7VcgS5j13iFaiMAAQAhgDsY72Ds1CzokLKyDAAsgzmtd5ifu6le/nk4Kq/BNMthHrQYWbAQIAYFAJNr5aTt8RJGbl/5H0wkfjaNaJ5GaTiMzVBza1sscrkN4/VYMwGoeUsEQBCdPO7uB4CyTAE0qNwAaH5eTr1mwcL8wTVBmqRpZ8REuX2neOz+bErhuy00e7ktFkXUI63QpWsSbrkmkZY2BWKMO+qOSSfMU6WZAGDts9kRwBwbwKsKoF61aDAAPKadEddi+ExskAD4fUQaAK7HIq1tMA/TNE4AzQABGEx5TXsYZ9Qt8zHp6OqXktLSDHqAaYIwzXT/7GizrNyBvcEWdH+ITfC1DJpgfOJOvSZAuAv3lF5DNC8hskYtMBelQQjR7kGad/E3YBzXLdG8G0C4uU1CGHt6Yu3oA+3dPbFOqKu7p78TZdAFKH3FxSXpAbwKk6z3+ciA2Rvr5WPs/mh8Do7n5NShMWI5zKvPGIDJAM0GI5hk9DUDaFoh2ObtkYJ5nsdY5zwmlChMDwRgKYRz9ypgekEXswHnxcXF6QEw0qx3Api1sQ4AIgpgNsqBQBYg/eejFJIBgCct7lY7td1R10jbZtMBsM2zyVnCsQFg0n8AAMhvFdC+gFI4c+ZMegDc5LD5zYXJmRvq5KMDEawIDTI9uxaqQV+oA5ja+wcA95QxbmQ3uYEAaN4HAJufNkADwERdzVsgzCpw+vTp9ABY44w4QTALVh9vkU8LI/LhwbB8cCCMG6KIfLA/nLIECCHe/AwEKjUAGjYA3ObVuJEBQLkAGAjGuN8qUHS6KIMM0BJAx89FBqAEPsEqsGI7N0UN2v1ZIu//GEqZAQMAwEzcPM+xCmAZIABj2jEPY17jxrBz7BN9o1SrwKmiU+kBLELkZyPNZ8P8y0j5Dw+yBOpxXKvnLI3pG2oUgDEbF//DiBJwIq7mrQi75c4ANU7BXCoACcYTos+9gFUCjLhCMOZhnOapkydPpgewcDOan13nrHmmvgLYgHMYn4uVYNYmqwfobs5HMcgxqyBsmWtQP8xTmUTeMe4WzLojT/Mh7AUs40x7RB3HxnzHnT45cfJEZhkwB1GmZiALCGARUn8GgMyE5qI05uQYAIx2XDSuQno7Dc9kgW3UqB8forzmDQDHPOUx7javxpEBKuwF3ClvjBudOJ4BgKUFuN9HvXO547r/yeGIXuMxtSC/XuZDfhmgda2jnQE+qW8A9PXfVXmNJ015j7j5MaY5BhF9yp3yHV1x89SxY8cGAtCadYmbHKb7DKT71Kxq+Ts6/tzcWnkxu1qmQjM21cjLG60eAJ8eWeYdAB7T1LmKGtm6fbccOlyo2rp9lxS4tGUbZEajrQO1eetO2VyAsWCnHDlZ4gCwoh6PfDuO2zl29snRY0d9ALgiSL2Sh+YH86x3C0AIAOr+LwAY5a3bd+oT2kyUnZ3te92rz//zpQSi1yTgAHCb75fbME8dOXLED0C8himanYbmNw1df8q6anl/f1Dm4NoL66tlyvoqNf/SxupfJoDo1ZQACo8Ups8ArgJzkPJsdDNg9qNDIVm0BXsCnM9E9OfmYTcIKQDbrJ+85nmDQwAF2wYHgCosLEypz1d/KXkohbyCHfLD/kPyw4+HZJ+jg87x6i9Wy/Dhw+eOHDly5qOPPvo7BYC5JogZwPSfvqFaXtASCMJ0Yg8w+wA/41zaOBrz3vV9MAB+To0ZM+Y9XwCzEGkapyatq5S//RiQGTk18tz6C1ClTAOYqRuqfAGYtT3V8sYG19zc4quoqlmi0bgiXkUshT2iKe+1cNglz3txAC4D1GwAYLSp51Dz7+0PyCyUxPNZVfI8zl+C+RcBgd+NG040398fc5Y0t7i0sasbw3xKS/G4rLxcRdNmLgm/iyWTMstngvoQObx6Mfb2xXwVDkddSgFgHtKdaU69CLP/OBiUefm1GvlpOJ+ZUy3TN1kA+mB2gHRSsYSoG/PJADDqCqDMApCRcTWb3LBRj61EAFEZPXq0P4CXYXzyuipN+QnfVshf9gW06z/7/QV59rsKZEKlTIb8APTCuKW7A4yrsKnhGm4AUCnT3pO2KietEw2FBqkUAJj6lQrg2e9tAIj+RJjnOQHwPQUAs14RAIknGLfNGwAm8mUqK/JGpUal5VLiVolRmaPiJDqTQuYzo0aNsgAkpBs0HdGevO6C6mmY/vO+RvSDKpkA88/gnOYn4T1+Nx5xS31MOz8Ari0tAUQiUd1zhCMRhR4OW2MII+cQCkUA864EzRiMaDoHg2EdAxh7euNjE0Y+CWoKYOzJbHQAeNN4Vi42Ooj49I1VWAkqsREKyGys+zyeAvE6e4EfAK07TCQdgJTmMSYzz991m/ea5sOQRmcM6dOgxDH+flIAbHxMddb8ePSAd/c0Yv2vRDacl/EQM2Mi3lcANOwRJ5cAwJh3AVDzoOBnng3P17xt2on4ANMw2QSTuBu8iJG3xX4j3+fn4gAQObcIgOk+Aek+7tvz8qc9F+UFAKD5p745j/QHHLzH79LoABEA5DVubl+34CbGvWWmTPm5u73p8O7fNA88KRqnaRqiucHKAeBNY6Y6a5/1/iQMvw0Az2ddkHE4/uM35zQ7+J4vAHuiCgBmVQMA7MrYvJNRNE55zHtN8VY4UyUFwPo2TfAZRJ1NcNrGSisrvj+vTXAyskAB2JPzipN0AKjx+COrzS4AjnnImLcA+Jv3i7rXWPx22Ef2+4kA7D9mxBJgl6dY97oKbDAAzCpgA8CE3OIkddIYTcSNzJObfD8ACebt1E9i3i/icdPmLtBf5n0KN0QWAG8a0yDT/SnU/9ivzsrKXQ0yaX2FPPH1OXkC58yK8d+e8wfgmmwCANyn65MbjPm4a0tm3trd4bfwO2x4bHZsdGxy7OJsYlRDo6V66iIVlDqjhqA+/EgqG0ZSAJNtAONQ73+wAUxExAmD5+MBhu/xuzTrlRUpS9azeUYr/myet6uZRN90em/kE6MeN0RzvOevBQBz/59KcQD4Y24xA2hyPCCM/fqsvLv3IrbCWBoBYQI0JZt3hdZGSOvRJWvCmKjKAmCMU3xKSwCpou8AcJa4eORpXCPvjjoM07QxXlsflJ86+pLqNpUAAH/Erano+KxxrvVPA8TSrXXyJrLg9Z31snxHvazcXS8rcO4HgIbvFYB72WMpGQCm4flG3hVRY9AC0Cu32j3CNV43n0sKgJEey3qHmAGs98e/LJeR/y2XEWvK9NrjX5XbAEyKWjKm9R8nVHHjpgPzaU266DOTzObGXff8/oDIw7ARTdbUYfSa95EDwNSuEdd5bXhrLQDPYOkbu/asjMHxaBjnXuAJnPO7jmFHlmEDQM07UUsOwLvpMQDcdW/9hifydjTdESeAmxhv3vaI1+zPJABwpzDFtX6M3fAeh7gU0vwomB+JTHjym7MKRgE4kbZlAzByzNuTp/hsjgCc6CuAePQpZhO3qwkd39S9T+RpmqqmagHANn3DVgIIKhWASVjyaJp6CpqIc26Dx6EUGH1mxPjvzklFRQVMWv8EFZdt3Mhl3HRrBeAy7wXA+tdywvf9op9Y8/GImqgb06nEz7kADL6OORn+/zr839b27t07KK1atSp1+isAy7wDAOXjTn3TyBzztinH5E9Uj1x3ied63f7MiBEjLADx+jWyDBsACalstpO668KkMBmj2yY6nFyn1W3ZlLzave+gPwAYVwCYw4DO7xN9/T1v5NV4b4JxrwyEOAAn0rZsAEaOeXsiTjp39sM0FZ/YbUzKLDVe46YB7RkAILH+vQDM3/U2Pnf0TVTTmTfi5xTAvdaxmjcT8kxM69IrnWyPjrv3HkgKwGylE9LfA8D5GzTvBuA1f6tH2lziuft9BXCvdXw/Yg9IfNYXf76nz+2Ky6ToTKml06VyqqhUThaVqE5Ax09BJy0dO2HpKHW8WI64VJhE5n0FoP8+Zv1b2ZDpscceW5D4lDf+pDZIhaK4D4ioGgMRLIURaWgKYykM4+YnjE0Q1GCptj4sNbaq60KOqlLIfGb06NEfOP/vMCb20FDp4Ycf/j2WoLcRgXcgjr4CKGdMJvzOG37C91Jq1KhRKx955JHh/wNLogZz0S9x1wAAAABJRU5ErkJggg==" InformativeScreenshot="56697e9418442e6c8b46bc1609efedc0.jpg" Selector="&lt;html app='chrome.exe' url='https://payments2.deluxe.com/gateway/virtual-terminal' /&gt;" Title="Payments">
+          <uix:TargetApp.Url>
+            <InArgument x:TypeArguments="x:String">
+              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">Dpp_Url</CSharpValue>
+            </InArgument>
+          </uix:TargetApp.Url>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
