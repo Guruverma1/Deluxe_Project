@@ -1,0 +1,1282 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="TC_11028" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dd="clr-namespace:DPP_ReusableLibrary.DatePicker;assembly=DPP_ReusableLibrary" xmlns:dp="clr-namespace:DPP_ReusableLibrary.Payments;assembly=DPP_ReusableLibrary" xmlns:dr="clr-namespace:DPP_ReusableLibrary.RealTimeTransaction;assembly=DPP_ReusableLibrary" xmlns:dr1="clr-namespace:DPP_ReusableLibrary.Reports;assembly=DPP_ReusableLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_SuiteID" Type="InArgument(x:String)" />
+    <x:Property Name="Int_in_ReportID" Type="InArgument(x:Int32)" />
+    <x:Property Name="str_out_Test_ID" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:TC_11028.out_SuiteID>
+    <InArgument x:TypeArguments="x:String" />
+  </this:TC_11028.out_SuiteID>
+  <this:TC_11028.Int_in_ReportID>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:TC_11028.Int_in_ReportID>
+  <this:TC_11028.str_out_Test_ID>
+    <InArgument x:TypeArguments="x:String" />
+  </this:TC_11028.str_out_Test_ID>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1240,1778</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>TC_11028_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>ReporterForUiPath.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>CommonLibrary.Report</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>DPP_ReusableLibrary.Payments</x:String>
+      <x:String>ReporterForUiPath.Enums</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Testing</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Testing.Activities.TestData</x:String>
+      <x:String>UiPath.Testing.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>DPP_ReusableLibrary.RealTimeTransaction</x:String>
+      <x:String>UiPath.UIAutomationNext.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>CommonLibrary.Excel</x:String>
+      <x:String>System.Data.Common</x:String>
+      <x:String>System.Data.Sql</x:String>
+      <x:String>DPP_ReusableLibrary.DatePicker</x:String>
+      <x:String>DPP_ReusableLibrary.Reports</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>CommonLibrary</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>DPP_ReusableLibrary</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms.Design</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Testing</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="TC_11028" sap:VirtualizedContainerService.HintSize="512,1713" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_In_TestCaseID" />
+      <Variable x:TypeArguments="x:String" Default="Sale" Name="PaymentMethod" />
+      <Variable x:TypeArguments="x:String" Default="1" Name="TransactionAmount_Total" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_DataTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_TestCaseData" />
+      <Variable x:TypeArguments="x:String" Default="ESA" Name="MerchantName" />
+      <Variable x:TypeArguments="x:String" Default="Test@gmail.com" Name="Cust_Email" />
+      <Variable x:TypeArguments="x:String" Default="1212121212" Name="Cust_Phone" />
+      <Variable x:TypeArguments="x:String" Default="ACH/EFT" Name="PaymentType" />
+      <Variable x:TypeArguments="x:String" Default="TestGur" Name="AccountNickName" />
+      <Variable x:TypeArguments="x:String" Default="123123123" Name="RoutingNumber" />
+      <Variable x:TypeArguments="x:String" Default="12121212" Name="AccountNumber" />
+      <Variable x:TypeArguments="x:String" Default="Checking" Name="AccountType" />
+      <Variable x:TypeArguments="x:String" Name="out_Lastname" />
+      <Variable x:TypeArguments="x:String" Name="out_Firstname" />
+      <Variable x:TypeArguments="x:Double" Name="str_Out_TotalAmount" />
+      <Variable x:TypeArguments="x:String" Default="Tshirt" Name="Search_PresetSaleItem" />
+      <Variable x:TypeArguments="x:Double" Name="out_PresetSaleItemTaxRate1" />
+      <Variable x:TypeArguments="x:String" Name="out_PresetItemName1" />
+      <Variable x:TypeArguments="x:String" Name="SearchPresetSaleItem2">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">FruitProduct</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Double" Name="out_PresetSaleItemTaxrate2" />
+      <Variable x:TypeArguments="x:String" Name="out_PresetItemName2" />
+      <Variable x:TypeArguments="x:String" Default="GT-30 UK" Name="CustomerAddress" />
+      <Variable x:TypeArguments="x:String" Default="TX" Name="CustomerState" />
+      <Variable x:TypeArguments="x:String" Default="UK" Name="CustomerCity" />
+      <Variable x:TypeArguments="x:String" Default="12121-2121" Name="CustomerZipCode" />
+      <Variable x:TypeArguments="x:String" Default="United States" Name="CustomerCountry" />
+      <Variable x:TypeArguments="x:String" Default="Testing" Name="OrderNote" />
+      <Variable x:TypeArguments="x:String" Default="Sale Discount" Name="DiscountRate" />
+      <Variable x:TypeArguments="x:String" Default="https://payments2.deluxe.com/" Name="Dpp_Url" />
+      <Variable x:TypeArguments="x:String" Name="out_saleItemPrice1" />
+      <Variable x:TypeArguments="x:String" Name="out_saleItemPrice2" />
+      <Variable x:TypeArguments="x:String" Name="out_CustomerStateCode" />
+      <Variable x:TypeArguments="x:String" Name="out_DiscountRateAmount" />
+      <Variable x:TypeArguments="x:String" Default="12121212" Name="InvoiceNumber" />
+      <Variable x:TypeArguments="x:Double" Name="TwosaleItemPrice" />
+      <Variable x:TypeArguments="x:Double" Name="Out_TotalAmount" />
+      <Variable x:TypeArguments="x:String" Name="out_Paymentid" />
+      <Variable x:TypeArguments="x:String" Name="out_SKUCode1" />
+      <Variable x:TypeArguments="x:String" Name="out_SKUCode2" />
+      <Variable x:TypeArguments="x:String" Name="out_TransactionStatus" />
+      <Variable x:TypeArguments="x:String" Name="Out_MID" />
+      <Variable x:TypeArguments="x:String" Name="out_TaxAmount" />
+      <Variable x:TypeArguments="x:String" Name="Last4Digit">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">1212</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Default="PENDING" Name="Status" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Repoert" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="388,133" sap2010:WorkflowViewState.IdRef="CreateReport_1" ReportLocation="C:\Users\T475303\Documents\DPP_TestAutomationProject\Reports\Application Tests" ReportName="TC-11028">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ra:CreateReport.isCreated>
+          <OutArgument x:TypeArguments="x:Int32">
+            <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">Int_in_ReportID</CSharpReference>
+          </OutArgument>
+        </ra:CreateReport.isCreated>
+      </ra:CreateReport>
+      <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="StartSuite_2" SuiteName="Transaction module">
+        <ra:StartSuite.ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </ra:StartSuite.ReportId>
+        <ra:StartSuite.suiteId>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">out_SuiteID</CSharpReference>
+          </OutArgument>
+        </ra:StartSuite.suiteId>
+      </ra:StartSuite>
+      <cr:startTest sap:VirtualizedContainerService.HintSize="388,243" sap2010:WorkflowViewState.IdRef="startTest_1" str_in_testName="Verify the ACH/EFT with Quarterly recurring details in customer vault (RECURRING SUMMARY,SCHEDULED RECURRING TRANSACTIONS, TRANSACTION HISTORY) and verify the transaction details in Realtime Transaction and Reports.">
+        <cr:startTest.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </cr:startTest.int_in_ReportId>
+        <cr:startTest.str_in_SuiteId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">out_SuiteID</CSharpValue>
+          </InArgument>
+        </cr:startTest.str_in_SuiteId>
+        <cr:startTest.str_out_TestId>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">str_out_Test_ID</CSharpReference>
+          </OutArgument>
+        </cr:startTest.str_out_TestId>
+      </cr:startTest>
+    </Sequence>
+    <Sequence DisplayName="Pre-Condition" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_CardExpiration="{x:Null}" str_in_CardNumber="{x:Null}" str_in_ExistingCustomerName="{x:Null}" DisplayName="Payments creation" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="PaymentsCreation_2" bool_in_CreateValutCustomer="False">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:PaymentsCreation.int_in_reportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.int_in_reportId>
+        <dp:PaymentsCreation.str_in_ACH_AccountNickName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">AccountNickName</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_ACH_AccountNickName>
+        <dp:PaymentsCreation.str_in_ACH_AccountNumber>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">AccountNumber</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_ACH_AccountNumber>
+        <dp:PaymentsCreation.str_in_ACH_AccountType>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">AccountType</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_ACH_AccountType>
+        <dp:PaymentsCreation.str_in_ACH_RoutingNumber>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">RoutingNumber</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_ACH_RoutingNumber>
+        <dp:PaymentsCreation.str_in_Cash_AmountTender>
+          <InArgument x:TypeArguments="x:String" />
+        </dp:PaymentsCreation.str_in_Cash_AmountTender>
+        <dp:PaymentsCreation.str_in_CheckNumber>
+          <InArgument x:TypeArguments="x:String" />
+        </dp:PaymentsCreation.str_in_CheckNumber>
+        <dp:PaymentsCreation.str_in_CustEmail>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">Cust_Email</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_CustEmail>
+        <dp:PaymentsCreation.str_in_CustPhoneNumber>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">Cust_Phone</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_CustPhoneNumber>
+        <dp:PaymentsCreation.str_in_MerchantName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">MerchantName</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_MerchantName>
+        <dp:PaymentsCreation.str_in_PaymentMethod>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">PaymentMethod</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_PaymentMethod>
+        <dp:PaymentsCreation.str_in_PaymentType>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">PaymentType</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_PaymentType>
+        <dp:PaymentsCreation.str_in_TransactionAmount_Total>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">TransactionAmount_Total</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_TransactionAmount_Total>
+        <dp:PaymentsCreation.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_Url>
+        <dp:PaymentsCreation.str_in_testId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:PaymentsCreation.str_in_testId>
+        <dp:PaymentsCreation.str_io_CustFirstName>
+          <InOutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">out_Firstname</CSharpReference>
+          </InOutArgument>
+        </dp:PaymentsCreation.str_io_CustFirstName>
+        <dp:PaymentsCreation.str_io_CustLastName>
+          <InOutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">out_Lastname</CSharpReference>
+          </InOutArgument>
+        </dp:PaymentsCreation.str_io_CustLastName>
+        <dp:PaymentsCreation.str_out_MID>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">Out_MID</CSharpReference>
+          </OutArgument>
+        </dp:PaymentsCreation.str_out_MID>
+      </dp:PaymentsCreation>
+      <dd:SetupRecurringPayment_ToggleButton sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="SetupRecurringPayment_ToggleButton_1">
+        <dd:SetupRecurringPayment_ToggleButton.DPP_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dd:SetupRecurringPayment_ToggleButton.DPP_Url>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </dd:SetupRecurringPayment_ToggleButton>
+      <dd:StartDate_DatePicker sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="StartDate_DatePicker_1">
+        <dd:StartDate_DatePicker.Str_InputDate>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_134">DateTime.Now.ToString("MMMM d, yyyy")</CSharpValue>
+          </InArgument>
+        </dd:StartDate_DatePicker.Str_InputDate>
+        <dd:StartDate_DatePicker.Str_URL>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_135">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dd:StartDate_DatePicker.Str_URL>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </dd:StartDate_DatePicker>
+      <dd:EndDate_DatePicker sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="EndDate_DatePicker_1">
+        <dd:EndDate_DatePicker.Str_InputDate>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_136">DateTime.Now.AddMonths(3).ToString("MMMM d, yyyy")</CSharpValue>
+          </InArgument>
+        </dd:EndDate_DatePicker.Str_InputDate>
+        <dd:EndDate_DatePicker.Str_URL>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_137">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dd:EndDate_DatePicker.Str_URL>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </dd:EndDate_DatePicker>
+      <dd:Frequency_Option str_in_AnnuallyMonth="{x:Null}" str_in_AnnuallyOptions="{x:Null}" Frequency="Quarterly" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="Frequency_Option_1" str_in_Frequency="Quarterly">
+        <dd:Frequency_Option.Dpp_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_138">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dd:Frequency_Option.Dpp_Url>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dd:Frequency_Option.str_in_BiWeeklyOptions>
+          <InArgument x:TypeArguments="x:String" />
+        </dd:Frequency_Option.str_in_BiWeeklyOptions>
+        <dd:Frequency_Option.str_in_WeeklyOptions>
+          <InArgument x:TypeArguments="x:String" />
+        </dd:Frequency_Option.str_in_WeeklyOptions>
+        <dd:Frequency_Option.str_in_reportid>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_139">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dd:Frequency_Option.str_in_reportid>
+        <dd:Frequency_Option.str_in_testid>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_140">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dd:Frequency_Option.str_in_testid>
+      </dd:Frequency_Option>
+      <dp:AddPresetSaleItem sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddPresetSaleItem_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:AddPresetSaleItem.dbl_out_PresetSaleItemTaxRate>
+          <OutArgument x:TypeArguments="x:Double">
+            <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">out_PresetSaleItemTaxRate1</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.dbl_out_PresetSaleItemTaxRate>
+        <dp:AddPresetSaleItem.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.int_in_ReportId>
+        <dp:AddPresetSaleItem.str_in_SearchSaleItem>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">Search_PresetSaleItem</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.str_in_SearchSaleItem>
+        <dp:AddPresetSaleItem.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.str_in_TestId>
+        <dp:AddPresetSaleItem.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.str_in_Url>
+        <dp:AddPresetSaleItem.str_out_PresetItemName>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">out_PresetItemName1</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.str_out_PresetItemName>
+        <dp:AddPresetSaleItem.str_out_SKUCode>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">out_SKUCode1</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.str_out_SKUCode>
+        <dp:AddPresetSaleItem.str_out_SaleItemPrice>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">out_saleItemPrice1</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.str_out_SaleItemPrice>
+      </dp:AddPresetSaleItem>
+      <dp:AddPresetSaleItem sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddPresetSaleItem_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:AddPresetSaleItem.dbl_out_PresetSaleItemTaxRate>
+          <OutArgument x:TypeArguments="x:Double">
+            <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">out_PresetSaleItemTaxrate2</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.dbl_out_PresetSaleItemTaxRate>
+        <dp:AddPresetSaleItem.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.int_in_ReportId>
+        <dp:AddPresetSaleItem.str_in_SearchSaleItem>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">SearchPresetSaleItem2</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.str_in_SearchSaleItem>
+        <dp:AddPresetSaleItem.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.str_in_TestId>
+        <dp:AddPresetSaleItem.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:AddPresetSaleItem.str_in_Url>
+        <dp:AddPresetSaleItem.str_out_PresetItemName>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">out_PresetItemName2</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.str_out_PresetItemName>
+        <dp:AddPresetSaleItem.str_out_SKUCode>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">out_SKUCode2</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.str_out_SKUCode>
+        <dp:AddPresetSaleItem.str_out_SaleItemPrice>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">out_saleItemPrice2</CSharpReference>
+          </OutArgument>
+        </dp:AddPresetSaleItem.str_out_SaleItemPrice>
+      </dp:AddPresetSaleItem>
+      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Double">
+            <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">TwosaleItemPrice</CSharpReference>
+          </OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">Convert.ToDouble(out_saleItemPrice1)+Convert.ToDouble(out_saleItemPrice2)</CSharpValue>
+          </InArgument>
+        </Assign.Value>
+      </Assign>
+      <dp:CustomerInfo DisplayName="Customer info" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CustomerInfo_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:CustomerInfo.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.int_in_ReportId>
+        <dp:CustomerInfo.str_in_CustomerAddress>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_125">CustomerAddress</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.str_in_CustomerAddress>
+        <dp:CustomerInfo.str_in_CustomerCity>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">CustomerCity</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.str_in_CustomerCity>
+        <dp:CustomerInfo.str_in_CustomerDefaultCountry>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">CustomerCountry</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.str_in_CustomerDefaultCountry>
+        <dp:CustomerInfo.str_in_CustomerState>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">CustomerState</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.str_in_CustomerState>
+        <dp:CustomerInfo.str_in_CustomerZipCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">CustomerZipCode</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.str_in_CustomerZipCode>
+        <dp:CustomerInfo.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.str_in_TestId>
+        <dp:CustomerInfo.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:CustomerInfo.str_in_Url>
+        <dp:CustomerInfo.str_out_CustomerStateCode>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">out_CustomerStateCode</CSharpReference>
+          </OutArgument>
+        </dp:CustomerInfo.str_out_CustomerStateCode>
+      </dp:CustomerInfo>
+      <dp:AdditionalFields str_in_CustomerTaxExempt="{x:Null}" str_out_TaxRatePercentage="{x:Null}" DisplayName="Additional fields" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AdditionalFields_1" str_in_TaxRateListName="No Tax">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:AdditionalFields.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:AdditionalFields.int_in_ReportId>
+        <dp:AdditionalFields.str_in_DiscountRate>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">DiscountRate</CSharpValue>
+          </InArgument>
+        </dp:AdditionalFields.str_in_DiscountRate>
+        <dp:AdditionalFields.str_in_InvoiceNumber>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">InvoiceNumber</CSharpValue>
+          </InArgument>
+        </dp:AdditionalFields.str_in_InvoiceNumber>
+        <dp:AdditionalFields.str_in_OrderNote>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">OrderNote</CSharpValue>
+          </InArgument>
+        </dp:AdditionalFields.str_in_OrderNote>
+        <dp:AdditionalFields.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:AdditionalFields.str_in_TestId>
+        <dp:AdditionalFields.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:AdditionalFields.str_in_Url>
+        <dp:AdditionalFields.str_out_DiscountRateAmount>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">out_DiscountRateAmount</CSharpReference>
+          </OutArgument>
+        </dp:AdditionalFields.str_out_DiscountRateAmount>
+      </dp:AdditionalFields>
+      <dp:OrderSummary str_in_AmountTendered="{x:Null}" str_in_ThirdSaleItem="{x:Null}" str_out_Surcharge="{x:Null}" DisplayName="Order summary" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="OrderSummary_1" bool_in_RemoveSurcharge="True" dbl_in_ThirdSaleItemTaxRate="0" dbl_in_ThirdSaleitemPrice="0">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:OrderSummary.dbl_in_DiscountRateAmount>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">Convert.ToDouble(out_DiscountRateAmount)</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.dbl_in_DiscountRateAmount>
+        <dp:OrderSummary.dbl_in_FirstSaleItemTaxRate>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">Convert.ToDouble(out_PresetSaleItemTaxRate1)</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.dbl_in_FirstSaleItemTaxRate>
+        <dp:OrderSummary.dbl_in_FirstSaleitemPrice>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">Convert.ToDouble(out_saleItemPrice1)</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.dbl_in_FirstSaleitemPrice>
+        <dp:OrderSummary.dbl_in_SaleItemTotalAmount>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">Convert.ToDouble(TwosaleItemPrice)</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.dbl_in_SaleItemTotalAmount>
+        <dp:OrderSummary.dbl_in_SecondSaleItemTaxRate>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">Convert.ToDouble(out_PresetSaleItemTaxrate2)</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.dbl_in_SecondSaleItemTaxRate>
+        <dp:OrderSummary.dbl_in_SecondSaleitemPrice>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">Convert.ToDouble(out_saleItemPrice2)</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.dbl_in_SecondSaleitemPrice>
+        <dp:OrderSummary.dbl_out_TotalAmount>
+          <OutArgument x:TypeArguments="x:Double">
+            <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_25">Out_TotalAmount</CSharpReference>
+          </OutArgument>
+        </dp:OrderSummary.dbl_out_TotalAmount>
+        <dp:OrderSummary.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.int_in_ReportId>
+        <dp:OrderSummary.str_in_CardType>
+          <InArgument x:TypeArguments="x:String" />
+        </dp:OrderSummary.str_in_CardType>
+        <dp:OrderSummary.str_in_CustomerAddress>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">CustomerAddress</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_CustomerAddress>
+        <dp:OrderSummary.str_in_CustomerCity>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">CustomerCity</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_CustomerCity>
+        <dp:OrderSummary.str_in_CustomerCountryCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">out_CustomerStateCode</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_CustomerCountryCode>
+        <dp:OrderSummary.str_in_CustomerSateCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_64">CustomerState</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_CustomerSateCode>
+        <dp:OrderSummary.str_in_CustomerZipCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">CustomerZipCode</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_CustomerZipCode>
+        <dp:OrderSummary.str_in_FirstName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">out_Firstname</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_FirstName>
+        <dp:OrderSummary.str_in_FirstSaleItem>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">out_PresetItemName1</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_FirstSaleItem>
+        <dp:OrderSummary.str_in_Last4Digits>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">Last4Digit</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_Last4Digits>
+        <dp:OrderSummary.str_in_LastName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">out_Lastname</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_LastName>
+        <dp:OrderSummary.str_in_OrderNote>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">OrderNote</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_OrderNote>
+        <dp:OrderSummary.str_in_PaymentType>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">PaymentType</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_PaymentType>
+        <dp:OrderSummary.str_in_SecondSaleItem>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_69">out_PresetItemName2</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_SecondSaleItem>
+        <dp:OrderSummary.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_70">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_TestId>
+        <dp:OrderSummary.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:OrderSummary.str_in_Url>
+        <dp:OrderSummary.str_out_TaxAmount>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">out_TaxAmount</CSharpReference>
+          </OutArgument>
+        </dp:OrderSummary.str_out_TaxAmount>
+      </dp:OrderSummary>
+      <dp:CloseOrderSummary DisplayName="Close order summary" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CloseOrderSummary_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:CloseOrderSummary.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:CloseOrderSummary.int_in_ReportId>
+        <dp:CloseOrderSummary.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_72">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:CloseOrderSummary.str_in_TestId>
+        <dp:CloseOrderSummary.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_126">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:CloseOrderSummary.str_in_Url>
+      </dp:CloseOrderSummary>
+      <dp:VerifyTransactionSuccessAndAuthorizationCode str_out_AuthorizationCode="{x:Null}" DisplayName="ClickOnChargeButtonAndVerifySuccess" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="VerifyTransactionSuccessAndAuthorizationCode_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dp:VerifyTransactionSuccessAndAuthorizationCode.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_118">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dp:VerifyTransactionSuccessAndAuthorizationCode.int_in_ReportId>
+        <dp:VerifyTransactionSuccessAndAuthorizationCode.str_in_PaymentType>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_119">PaymentType</CSharpValue>
+          </InArgument>
+        </dp:VerifyTransactionSuccessAndAuthorizationCode.str_in_PaymentType>
+        <dp:VerifyTransactionSuccessAndAuthorizationCode.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_120">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dp:VerifyTransactionSuccessAndAuthorizationCode.str_in_TestId>
+        <dp:VerifyTransactionSuccessAndAuthorizationCode.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_121">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dp:VerifyTransactionSuccessAndAuthorizationCode.str_in_Url>
+        <dp:VerifyTransactionSuccessAndAuthorizationCode.str_out_TransactionStatus>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">out_TransactionStatus</CSharpReference>
+          </OutArgument>
+        </dp:VerifyTransactionSuccessAndAuthorizationCode.str_out_TransactionStatus>
+      </dp:VerifyTransactionSuccessAndAuthorizationCode>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,354" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <dp:VerifyChargeButtonAmount str_in_Url="{x:Null}" DisplayName="Verify charge button amount" sap:VirtualizedContainerService.HintSize="388,243" sap2010:WorkflowViewState.IdRef="VerifyChargeButtonAmount_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <dp:VerifyChargeButtonAmount.dbl_in_ExpectedTotalAmount>
+                <InArgument x:TypeArguments="x:Double">
+                  <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">Convert.ToDouble(str_Out_TotalAmount)</CSharpValue>
+                </InArgument>
+              </dp:VerifyChargeButtonAmount.dbl_in_ExpectedTotalAmount>
+              <dp:VerifyChargeButtonAmount.int_in_reportId>
+                <InArgument x:TypeArguments="x:Int32">
+                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">Int_in_ReportID</CSharpValue>
+                </InArgument>
+              </dp:VerifyChargeButtonAmount.int_in_reportId>
+              <dp:VerifyChargeButtonAmount.str_in_testId>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_75">str_out_Test_ID</CSharpValue>
+                </InArgument>
+              </dp:VerifyChargeButtonAmount.str_in_testId>
+            </dp:VerifyChargeButtonAmount>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+    </Sequence>
+    <Sequence DisplayName="Verify in RealTime Transaction_11028" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <dr:TransactionSearched str_in_MerchantID="{x:Null}" sap:VirtualizedContainerService.HintSize="388,294" sap2010:WorkflowViewState.IdRef="TransactionSearched_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dr:TransactionSearched.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_79">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr:TransactionSearched.int_in_ReportId>
+        <dr:TransactionSearched.str_in_FirstName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76">out_Firstname</CSharpValue>
+          </InArgument>
+        </dr:TransactionSearched.str_in_FirstName>
+        <dr:TransactionSearched.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr:TransactionSearched.str_in_TestId>
+        <dr:TransactionSearched.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr:TransactionSearched.str_in_Url>
+      </dr:TransactionSearched>
+      <dr:Verify_RealtimeTransactionGrid str_in_ApprovalCode="{x:Null}" str_in_TransactionAmount="{x:Null}" str_in_Type="{x:Null}" sap:VirtualizedContainerService.HintSize="388,651" sap2010:WorkflowViewState.IdRef="Verify_RealtimeTransactionGrid_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dr:Verify_RealtimeTransactionGrid.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_81">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.int_in_ReportId>
+        <dr:Verify_RealtimeTransactionGrid.str_in_FirstName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">out_Firstname</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_FirstName>
+        <dr:Verify_RealtimeTransactionGrid.str_in_Last4Digits>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">Last4Digit</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_Last4Digits>
+        <dr:Verify_RealtimeTransactionGrid.str_in_LastName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">out_Lastname</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_LastName>
+        <dr:Verify_RealtimeTransactionGrid.str_in_MID>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_129">Out_MID</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_MID>
+        <dr:Verify_RealtimeTransactionGrid.str_in_PaymentType>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_84">PaymentType</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_PaymentType>
+        <dr:Verify_RealtimeTransactionGrid.str_in_Status>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_131">Status</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_Status>
+        <dr:Verify_RealtimeTransactionGrid.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_TestId>
+        <dr:Verify_RealtimeTransactionGrid.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_86">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr:Verify_RealtimeTransactionGrid.str_in_Url>
+      </dr:Verify_RealtimeTransactionGrid>
+      <dr:Click_on_ViewIcon_button DisplayName="Click on ViewIcon_button" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="Click_on_ViewIcon_button_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dr:Click_on_ViewIcon_button.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_88">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr:Click_on_ViewIcon_button.int_in_ReportId>
+        <dr:Click_on_ViewIcon_button.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr:Click_on_ViewIcon_button.str_in_TestId>
+        <dr:Click_on_ViewIcon_button.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_89">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr:Click_on_ViewIcon_button.str_in_Url>
+      </dr:Click_on_ViewIcon_button>
+      <dr:Verify_TransactionInformation str_in_CardExpiry="{x:Null}" str_in_CardNumber="{x:Null}" str_in_CardType="{x:Null}" str_in_SurchargeAmount="{x:Null}" sap:VirtualizedContainerService.HintSize="388,906" sap2010:WorkflowViewState.IdRef="Verify_TransactionInformation_1" str_in_ApprovalCode="N/A" str_in_ProcessingFeeIncluded="No" str_in_SubmissionMethod="Portal-Virtual Terminal" str_in_TransactionStatus="PENDING">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dr:Verify_TransactionInformation.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_90">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.int_in_ReportId>
+        <dr:Verify_TransactionInformation.str_in_DiscountAmount>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94">out_DiscountRateAmount</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.str_in_DiscountAmount>
+        <dr:Verify_TransactionInformation.str_in_OrderNote>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_96">OrderNote</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.str_in_OrderNote>
+        <dr:Verify_TransactionInformation.str_in_PaymentType>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_93">PaymentType</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.str_in_PaymentType>
+        <dr:Verify_TransactionInformation.str_in_TaxAmount>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_132">out_TaxAmount</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.str_in_TaxAmount>
+        <dr:Verify_TransactionInformation.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_91">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.str_in_TestId>
+        <dr:Verify_TransactionInformation.str_in_TotalTransactionAmount>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_95">TransactionAmount_Total</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.str_in_TotalTransactionAmount>
+        <dr:Verify_TransactionInformation.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_92">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr:Verify_TransactionInformation.str_in_Url>
+        <dr:Verify_TransactionInformation.str_out_PaymentId>
+          <OutArgument x:TypeArguments="x:String">
+            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">out_Paymentid</CSharpReference>
+          </OutArgument>
+        </dr:Verify_TransactionInformation.str_out_PaymentId>
+      </dr:Verify_TransactionInformation>
+      <dr:Verify_CustomerInformation sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="Verify_CustomerInformation_1" str_in_CustomerCountryCode="US" str_in_PartOfRecurringSchedule="Yes">
+        <dr:Verify_CustomerInformation.Validation_CompanyName>
+          <InArgument x:TypeArguments="x:String" />
+        </dr:Verify_CustomerInformation.Validation_CompanyName>
+        <dr:Verify_CustomerInformation.Validation_CustomerID>
+          <InArgument x:TypeArguments="x:String" />
+        </dr:Verify_CustomerInformation.Validation_CustomerID>
+        <dr:Verify_CustomerInformation.Validation_Fax>
+          <InArgument x:TypeArguments="x:String" />
+        </dr:Verify_CustomerInformation.Validation_Fax>
+        <dr:Verify_CustomerInformation.Validation_IpAddress>
+          <InArgument x:TypeArguments="x:String" />
+        </dr:Verify_CustomerInformation.Validation_IpAddress>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dr:Verify_CustomerInformation.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_106">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.int_in_ReportId>
+        <dr:Verify_CustomerInformation.str_in_CustomerAddress>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_100">CustomerAddress</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_CustomerAddress>
+        <dr:Verify_CustomerInformation.str_in_CustomerCity>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_101">CustomerCity</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_CustomerCity>
+        <dr:Verify_CustomerInformation.str_in_CustomerName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_99">out_Firstname+out_Lastname</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_CustomerName>
+        <dr:Verify_CustomerInformation.str_in_CustomerPhone>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_103">Cust_Phone</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_CustomerPhone>
+        <dr:Verify_CustomerInformation.str_in_CustomerStateCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_112">out_CustomerStateCode</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_CustomerStateCode>
+        <dr:Verify_CustomerInformation.str_in_CustomerZipCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_102">CustomerZipCode</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_CustomerZipCode>
+        <dr:Verify_CustomerInformation.str_in_Email>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_104">Cust_Email</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_Email>
+        <dr:Verify_CustomerInformation.str_in_FirstName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_98">out_Firstname</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_FirstName>
+        <dr:Verify_CustomerInformation.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_105">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_TestId>
+        <dr:Verify_CustomerInformation.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_97">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr:Verify_CustomerInformation.str_in_Url>
+      </dr:Verify_CustomerInformation>
+      <dr:Verify_SaleItemsInRealTimeTransaction dbl_in_ThirdSaleitemPrice="{x:Null}" str_in_ThirdSaleItemName="{x:Null}" str_in_ThirdSaleItemSKUCode="{x:Null}" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="Verify_SaleItemsInRealTimeTransaction_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dr:Verify_SaleItemsInRealTimeTransaction.dbl_in_FirstSaleitemPrice>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">Convert.ToDouble( out_saleItemPrice1)</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.dbl_in_FirstSaleitemPrice>
+        <dr:Verify_SaleItemsInRealTimeTransaction.dbl_in_SaleItemTotalAmount>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_116">TwosaleItemPrice</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.dbl_in_SaleItemTotalAmount>
+        <dr:Verify_SaleItemsInRealTimeTransaction.dbl_in_SecondSaleitemPrice>
+          <InArgument x:TypeArguments="x:Double">
+            <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_123">Convert.ToDouble( out_saleItemPrice2)</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.dbl_in_SecondSaleitemPrice>
+        <dr:Verify_SaleItemsInRealTimeTransaction.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_111">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.int_in_ReportId>
+        <dr:Verify_SaleItemsInRealTimeTransaction.str_in_FirstSaleItemName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_108">Search_PresetSaleItem</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.str_in_FirstSaleItemName>
+        <dr:Verify_SaleItemsInRealTimeTransaction.str_in_FirstSaleItemSKUCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_113">out_SKUCode1</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.str_in_FirstSaleItemSKUCode>
+        <dr:Verify_SaleItemsInRealTimeTransaction.str_in_SecondSaleItemName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_107">SearchPresetSaleItem2</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.str_in_SecondSaleItemName>
+        <dr:Verify_SaleItemsInRealTimeTransaction.str_in_SecondSaleItemSKUCode>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_115">out_SKUCode2</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.str_in_SecondSaleItemSKUCode>
+        <dr:Verify_SaleItemsInRealTimeTransaction.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_110">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.str_in_TestId>
+        <dr:Verify_SaleItemsInRealTimeTransaction.str_in_Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_117">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr:Verify_SaleItemsInRealTimeTransaction.str_in_Url>
+      </dr:Verify_SaleItemsInRealTimeTransaction>
+    </Sequence>
+    <Sequence DisplayName="Verify in Report" sap:VirtualizedContainerService.HintSize="450,1239" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <dr1:SearchTransaction DisplayName="Reports_SearchTransaction" sap:VirtualizedContainerService.HintSize="388,345" sap2010:WorkflowViewState.IdRef="SearchTransaction_1" str_in_MerchantField="Merchant ID" str_in_MerchantIdValue="6280490007617244">
+        <dr1:SearchTransaction.int_in_Report_ID>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_146">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransaction.int_in_Report_ID>
+        <dr1:SearchTransaction.str_in_CustomerName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_147">out_Firstname</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransaction.str_in_CustomerName>
+        <dr1:SearchTransaction.str_in_Test_ID>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_145">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransaction.str_in_Test_ID>
+        <dr1:SearchTransaction.str_in_URL>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_148">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransaction.str_in_URL>
+      </dr1:SearchTransaction>
+      <dr1:SearchTransactionGridVerification str_in_Amount="{x:Null}" str_in_AuthorizationCode="{x:Null}" str_in_TransactionType="{x:Null}" DisplayName="Verify the report sub menu search transaction grid information" sap:VirtualizedContainerService.HintSize="388,651" sap2010:WorkflowViewState.IdRef="SearchTransactionGridVerification_1" str_in_MerchantMID="6280490007617244">
+        <dr1:SearchTransactionGridVerification.int_in_Report_ID>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_150">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.int_in_Report_ID>
+        <dr1:SearchTransactionGridVerification.str_in_FirstName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_152">out_Firstname</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.str_in_FirstName>
+        <dr1:SearchTransactionGridVerification.str_in_Last4digits>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_155">Last4Digit</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.str_in_Last4digits>
+        <dr1:SearchTransactionGridVerification.str_in_LastName>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_153">out_Lastname</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.str_in_LastName>
+        <dr1:SearchTransactionGridVerification.str_in_PaymentType>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_154">PaymentType</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.str_in_PaymentType>
+        <dr1:SearchTransactionGridVerification.str_in_Test_ID>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_149">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.str_in_Test_ID>
+        <dr1:SearchTransactionGridVerification.str_in_TransactionStatus>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_156">Status</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.str_in_TransactionStatus>
+        <dr1:SearchTransactionGridVerification.str_in_URL>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_151">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr1:SearchTransactionGridVerification.str_in_URL>
+      </dr1:SearchTransactionGridVerification>
+      <dr1:SaleItemReport_AdvanceSearch DisplayName="Navigate_SaleItemReport" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="SaleItemReport_AdvanceSearch_1" str_in_MerchantMID="6280888815760052">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <dr1:SaleItemReport_AdvanceSearch.int_in_Report_ID>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_144">Int_in_ReportID</CSharpValue>
+          </InArgument>
+        </dr1:SaleItemReport_AdvanceSearch.int_in_Report_ID>
+        <dr1:SaleItemReport_AdvanceSearch.str_in_TestID>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_143">str_out_Test_ID</CSharpValue>
+          </InArgument>
+        </dr1:SaleItemReport_AdvanceSearch.str_in_TestID>
+        <dr1:SaleItemReport_AdvanceSearch.str_in_URL>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">Dpp_Url</CSharpValue>
+          </InArgument>
+        </dr1:SaleItemReport_AdvanceSearch.str_in_URL>
+      </dr1:SaleItemReport_AdvanceSearch>
+    </Sequence>
+  </Sequence>
+</Activity>
